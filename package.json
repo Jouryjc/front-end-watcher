@@ -1,0 +1,26 @@
+{
+  "name": "async",
+  "version": "0.0.1",
+  "private": true,
+  "devDependencies": {
+    "babel-plugin-import": "^1.6.2",
+    "react-scripts": "^1.0.2",
+    "redux-logger": "^3.0.6"
+  },
+  "dependencies": {
+    "antd": "^3.0.0",
+    "prop-types": "^15.5.10",
+    "react": "^15.5.0",
+    "react-dom": "^15.5.0",
+    "react-redux": "^5.0.5",
+    "react-router": "^3.2.0",
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "test": "react-scripts test"
+  }
+}
