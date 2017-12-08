@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Error from '../../components/warning/Error'
+import Error from '../components/Error'
 
 class ErrorDescription extends Component {
   static propTypes = {

@@ -15,13 +15,13 @@ const app = (location, cb) => {
 
 const main = (location, cb) => {
   require.ensure([], require => {
-    cb(null, require('../containers/common/Main').default)
+    cb(null, require('../containers/Main').default)
   }, 'main')
 }
 
 const error = (location, cb) => {
   require.ensure([], require => {
-    cb(null, require('../containers/warning/Error').default)
+    cb(null, require('../containers/Error').default)
   }, 'error')
 }
 

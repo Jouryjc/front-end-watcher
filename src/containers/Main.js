@@ -1,8 +1,8 @@
 import React from 'react'
 import 'antd/dist/antd.css'
 import PropTypes from 'prop-types'
-import HeaderSection from '../../components/common/HeaderSection'
-import ContentSection from '../../components/common/ContentSection'
+import HeaderSection from '../components/HeaderSection'
+import ContentSection from '../components/ContentSection'
 import { Layout } from 'antd';
 
 const { Footer } = Layout;
