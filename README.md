@@ -1,36 +1,30 @@
-# Redux Async Example
+# 前端监控系统
 
-This project template was built with [Create React App](https://github.com/facebookincubator/create-react-app), which provides a simple way to start React projects with no build configuration needed.
+做这个项目的初衷是最近在工作中，遇到很难跟踪的bug。很难跟踪是后端问题还是前端问题。看似前端问题，但是自己试了很多次问题都没问题；后端查日志，也看不出问题。
+所以想做一个前端监控系统，主要用于监控上线之后前端的bug。可以定位一些特殊情况（例如特殊变量为kong）的bug，或者是一些因为版本发布导致的缓存bug。
 
-Projects built with Create-React-App include support for ES6 syntax, as well as several unofficial / not-yet-final forms of Javascript syntax such as Class Properties and JSX.  See the list of [language features and polyfills supported by Create-React-App](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#supported-language-features-and-polyfills) for more information.
-
-## Available Scripts
+## 运行项目
 
 In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+开发模式下运行项目。<br>
+浏览器打开 [http://localhost:3000](http://localhost:3000) 。
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+页面已经支持热更新了，任何修改都会在页面上体现。<br>
+同时，页面上也能看到项目中存在的错误。
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+运行该命令会在根目录下新建一个build文件夹。<br>
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+build命令会压缩和hash编码相应的文件。<br>
+在项目准备发布时，运行该命令即可。
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**注意：这是一个单向操作，一旦你使用eject，那么就不能恢复了**
+使用说明：如果你对create-react-app这个构建工具和配置项不满意，你可以在任何时候eject，从而导出可配置的模板，这个命令可以移除到项目的单一构建依赖，取而代之的是将配置文件和项目依赖到导入到你的项目中，你可以随意支配他们，之后除了eject命令以外其余的命令都是可用的，这些命令也是可配置的，所以这时候你就可以操作他们了，不得不说这个逼装的可以，不就是变成vue-cli类似了吗，关于react的配置文件，容我日后再总结出来
+你不是非要使用这个功能，原来的模板指定的功能在中小项目中有很好的表现，你没有必须使用npm run eject的义务，但是作为牛逼的我们意识到如果这个构建工具不能自定义那么鸟用都没有
 
