@@ -1,11 +1,18 @@
-export const dataSource = [{
-    key: '1',
-    time: '胡彦斌',
-    status: 32,
-    errorInfo: '西湖区湖底公园1号'
-}, {
-    key: '2',
-    time: '胡彦祖',
-    status: 42,
-    errorInfo: '西湖区湖底公园1号'
-}];
+const Mock = require('mockjs')
+const Random = Mock.Random
+
+let lists =  Mock.mock({
+    'lists|10-50': [{
+        'key|+1': 1,
+        'time|1': Random.datetime('yyyy-MM-dd HH:mm:ss'),
+        'status|1': ['已处理' , '未处理' , '处理中' , '已删除'],
+        'errorInfo|1': Random.csentence( 5, 10 )
+    }]
+})
+
+export const dataSource = lists.lists
+
+
+
+
+

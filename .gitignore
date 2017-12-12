@@ -2,10 +2,11 @@
 
 # dependencies
 node_modules
-
+.idea
 # production
 build
 
 # misc
 .DS_Store
 npm-debug.log
+.idea/workspace.xml
