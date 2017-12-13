@@ -1,4 +1,4 @@
-import { Route } from 'react-router'
+import { Route , IndexRoute } from 'react-router'
 import React from 'react'
 
 const mch = (location, cb) => {
@@ -33,12 +33,13 @@ const addError = (location, cb) => {
 
 const routes = (
   <Route>
-    <Route path="/" getComponent={main}>
-      <Route path="/mch" getComponent={mch} />
-      <Route path="/app" getComponent={app} />
-      <Route path="/error" getComponent={error} />
-      <Route path="/addError" getComponent={addError}/>
-    </Route>
+        <Route path="/" getComponent={main}>
+            <IndexRoute getComponent={error}/>
+            <Route path="/mch" getComponent={mch} />
+            <Route path="/app" getComponent={app} />
+            <Route path="/error" getComponent={error} />
+            <Route path="/addError" getComponent={addError}/>
+        </Route>
   </Route>
 );
 

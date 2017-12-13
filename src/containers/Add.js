@@ -23,7 +23,8 @@ class AddForm extends Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 this.state = {...values}
-                dispatch(add(values))
+                const result = dispatch(add(values))
+                console.log(result)
             }
         });
     }

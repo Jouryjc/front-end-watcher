@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import { Layout, Menu, Icon } from 'antd'
+import { connect } from 'react-redux'
 import HeaderSection from '../components/HeaderSection'
 const { Content, Sider, Footer } = Layout
 const { SubMenu } = Menu
@@ -20,13 +21,13 @@ class Main extends React.Component {
                           <Sider width={200} style={{background: '#fff'}}>
                               <Menu
                                   mode="inline"
-                                  defaultSelectedKeys={['1']}
+                                  defaultSelectedKeys={[location.pathname.replace(/^\// , '')]}
                                   defaultOpenKeys={['sub1']}
                                   style={{height: '100%'}}
                               >
                                   <SubMenu key="sub1" title={<span><Icon type="file-text"/>错误日志</span>}>
-                                      <Menu.Item key="1"><Link to="/error">错误列表</Link></Menu.Item>
-                                      <Menu.Item key="2"><Link to="/addError">添加错误</Link></Menu.Item>
+                                      <Menu.Item key="error"><Link to="/error">错误列表</Link></Menu.Item>
+                                      <Menu.Item key="addError"><Link to="/addError">添加错误</Link></Menu.Item>
                                   </SubMenu>
                               </Menu>
                           </Sider>
@@ -43,6 +44,12 @@ class Main extends React.Component {
     }
 }
 
-export default Main
+const mapStateToProps = (state) => {
+    return {
+        state
+    }
+}
+
+export default connect(mapStateToProps)(Main)
 
 
