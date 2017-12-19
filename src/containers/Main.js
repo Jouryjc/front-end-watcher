@@ -15,7 +15,7 @@ class Main extends React.Component {
         const { location, children } = this.props
         return(
             <Layout style={{height: '100%'}}>
-                <HeaderSection options = {['博客' , '社区']}/>
+                <HeaderSection />
                 <Content style={{padding: '0 50px'}}>
                       <Layout style={{padding: '24px 0', background: '#fff'}}>
                           <Sider width={200} style={{background: '#fff'}}>

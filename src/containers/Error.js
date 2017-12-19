@@ -3,16 +3,16 @@ import PropTypes from 'prop-types'
 import Error from '../components/Error'
 
 class ErrorDescription extends Component {
-  static propTypes = {
-    description: PropTypes.string.isRequired
-  }
+    static propTypes = {
+        description: PropTypes.string
+    }
 
-  render() {
-    const { description } = this.props
-    return (
-      <Error description = {'404'} />
-    )
-  }
+    render() {
+        const { description } = this.props
+        return (
+            <Error description = {'404'} />
+        )
+    }
 }
 
 export default ErrorDescription

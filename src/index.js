@@ -4,7 +4,9 @@ import { createStore, applyMiddleware , combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import { createLogger } from 'redux-logger'
-import alloperations from './reducers/error'
+// import rootReducer from './reducers/index'
+import user from './reducers/user'
+import dataSource from './reducers/error'
 import router from './routers/router'
 import { Router , browserHistory } from 'react-router';
 import { syncHistoryWithStore , routerReducer } from 'react-router-redux'
@@ -16,7 +18,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 const store = createStore(
     combineReducers({
-        dataSource: alloperations,
+        user: user,
+        dataSource: dataSource,
         routing: routerReducer
     }),
     applyMiddleware(...middleware)

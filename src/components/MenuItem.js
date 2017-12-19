@@ -4,11 +4,11 @@ import PropTypes from 'prop-types'
 
 const MenuItem = ({ options }) => (
   <div>
-    {options.map((option) =>
-        <Menu.Item key={option}>
-          {option}
-        </Menu.Item>)
-    }
+      {options.map((option) =>
+          <Menu.Item key={option}>
+              {option}
+          </Menu.Item>)
+      }
   </div>
 )
 
