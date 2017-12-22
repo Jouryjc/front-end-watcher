@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Form, Icon, Input, Button, Checkbox } from 'antd'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { getUser } from '../../actions/user'
 import style from './style.css'
 const FormItem = Form.Item;
 
@@ -22,14 +23,17 @@ class NormalLoginForm extends Component {
     }
 
     static propTypes = {
-        user: PropTypes.object
+        user: PropTypes.object,
+        dispatch: PropTypes.func
     }
 
     handleSubmit = (e) => {
+        const dispatch = this.props.dispatch
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
+                dispatch(getUser())
             }
         });
     }
@@ -42,7 +46,7 @@ class NormalLoginForm extends Component {
             <Form onSubmit={this.handleSubmit} className="login-form">
                 <FormItem {...formItemLayout}>
                     {getFieldDecorator('userName', {
-                        initialValue: userInfo.account, 
+                        initialValue: userInfo.account,
                         rules: [{ required: true, message: 'Please input your username!' }],
                     })(
                         <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
