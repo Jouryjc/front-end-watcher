@@ -13,7 +13,7 @@ let lists =  Mock.mock({
 export const dataSource = lists.lists
 
 export const userInfo = Mock.mock({
-    'account': Random.character( 'lower/upper/number/symbol' ),
+    'name': Random.character( 'lower/upper/number/symbol' ),
     'password': Random.character( 'lower/upper/number/symbol' )
 })
 

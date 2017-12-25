@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Form, Icon, Input, Button, Checkbox } from 'antd'
 import { connect } from 'react-redux'
+import { addUser } from '../../actions/user'
 import style from './style.css'
 const FormItem = Form.Item;
 
@@ -18,22 +20,32 @@ const formTailLayout = {
 class NormalLoginForm extends Component {
     constructor(props) {
         super(props)
-
     }
+
+    static propTypes = {
+        user: PropTypes.object,
+        dispatch: PropTypes.func,
+        name: PropTypes.string,
+        password: PropTypes.string
+    }
+
     handleSubmit = (e) => {
+        const dispatch = this.props.dispatch
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
+                dispatch(addUser(values))
             }
         });
     }
     render() {
         const { getFieldDecorator } = this.props.form;
+
         return (
             <Form onSubmit={this.handleSubmit} className="login-form">
                 <FormItem {...formItemLayout} >
-                    {getFieldDecorator('userName', {
+                    {getFieldDecorator('name', {
                         rules: [{ required: true, message: 'Please input your username!' }],
                     })(
                         <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
@@ -68,7 +80,7 @@ const WrappedNormalLoginForm = Form.create()(NormalLoginForm);
 
 const mapStateToProps = ( state ) => {
     return {
-        ...state
+        user: state.user
     }
 }
 
