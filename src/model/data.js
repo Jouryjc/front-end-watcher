@@ -1,6 +1,12 @@
 const Mock = require('mockjs')
 const Random = Mock.Random
 
+const pool = {
+    lower: "abcdefghijklmnopqrstuvwxyz",
+    upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    number: "0123456789",
+}
+
 let lists =  Mock.mock({
     'lists|10-50': [{
         'key|+1': 1,
@@ -13,8 +19,10 @@ let lists =  Mock.mock({
 export const dataSource = lists.lists
 
 export const userInfo = Mock.mock({
-    'name': Random.character( 'lower/upper/number/symbol' ),
-    'password': Random.character( 'lower/upper/number/symbol' )
+    'userid': Random.string('lower' , 10 , 15),
+    'name': Random.string( 'lower', 10 , 15 ),
+    'password': Random.string( 'lower' , 10 , 15 ),
+    'logIn': true
 })
 
 

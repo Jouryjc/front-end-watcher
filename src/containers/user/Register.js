@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Form, Icon, Input, Button, Checkbox } from 'antd'
+import { Form, Icon, Input, Button, Checkbox,message } from 'antd'
 import { connect } from 'react-redux'
 import { addUser } from '../../actions/user'
 import style from './style.css'
@@ -23,7 +23,6 @@ class NormalLoginForm extends Component {
     }
 
     static propTypes = {
-        user: PropTypes.object,
         dispatch: PropTypes.func,
         name: PropTypes.string,
         password: PropTypes.string
@@ -32,10 +31,16 @@ class NormalLoginForm extends Component {
     handleSubmit = (e) => {
         const dispatch = this.props.dispatch
         e.preventDefault();
-        this.props.form.validateFields((err, values) => {
+        this.props.form.validateFields(async (err, values) => {
             if (!err) {
-                console.log('Received values of form: ', values);
-                dispatch(addUser(values))
+                let responce = await dispatch(addUser(values))
+                console.log(responce)
+                if(responce && responce.status == 1) {
+                    message.error(responce.description)
+                }else {
+                    message.success(responce.description)
+
+                }
             }
         });
     }
@@ -69,7 +74,6 @@ class NormalLoginForm extends Component {
                     <Button type="primary" htmlType="submit" className="login-form-button">
                         Log in
                     </Button>
-                    Or <a href="">register now!</a>
                 </FormItem>
             </Form>
         );
@@ -78,11 +82,5 @@ class NormalLoginForm extends Component {
 
 const WrappedNormalLoginForm = Form.create()(NormalLoginForm);
 
-const mapStateToProps = ( state ) => {
-    return {
-        user: state.user
-    }
-}
 
-
-export default connect(mapStateToProps)(WrappedNormalLoginForm)
+export default connect()(WrappedNormalLoginForm)
